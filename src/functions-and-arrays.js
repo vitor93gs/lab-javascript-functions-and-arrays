@@ -1,24 +1,92 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1,num2) {
+  if(num1>num2){
+    return num1
+  }
+  else if(num2>num1){
+    return num2
+  }
+  else{return num1}
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  if(words.length===0){
+    return null
+  }
+  else if(words.length===1){
+    return words[0]
+  }
+  else{
 
+    let longestWord = ''
+    for(let i=0;words.length>i;i++){
+      if(words[i].length>longestWord.length){
+        longestWord = words[i]
+      }
+    }
+    return longestWord
+  }
+}
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  if(arr.length===0){
+    return 0
+  }
+  else if(arr.length===1){
+    return arr[0]
+  }
+  else{
+    var sum = 0
+    arr.map((current)=>{
+      sum+=current
+    })
+    return sum
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  if(arr.length===0){
+    return 0
+  }
+  else if(arr.length===1){
+    return arr[0]
+  }
+  else{
+    var sum=0
+    arr.map((current)=>{
+      if(typeof current ==='number'){
+        sum+=current
+      }
+      else if(typeof current ==='string'){
+        sum+=current.length
+      }
+      else if(typeof current ==='boolean'){
+        if(current === true){
+          sum+=1
+        }
+      }
+    })
+    arr.map((current)=>{
+    if(typeof current === 'array'){
+      sum= `Unsupported data type sir or ma'am`
+    }
+    else if(typeof current === `object`){
+      sum= `Unsupported data type sir or ma'am`
+    }
+    })
+    return sum
+  }
+}
 
 
 
@@ -26,16 +94,73 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if(arr.length===0){
+    return null
+  }
+  if(arr.length===1){
+    return arr[0]
+  }
+  var med = 0 , count = 0 , sum = 0
+  
+  arr.map((current)=>{
+    sum+=current
+    count++
+  })
+  med=sum/count
+  return med
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if(arr.length===0){
+    return null
+  }
+  if(arr.length===1){
+    return arr[0].length
+  }
+  var med = 0 , count = 0 , sum = 0
+  
+  arr.map((current)=>{
+    sum+=current.length
+    count++
+  })
+  med=sum/count
+  return med
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if(arr.length===0){
+    return null
+  }
+  var med = 0 , count = 0 , sum = 0
+  arr.map((current)=>{
+    if(typeof current === `number`){
+      sum+=current
+      count++
+    }
+    else if(typeof current === `string`){
+      sum+=current.length
+      count++
+    }
+    else if(typeof current === `boolean`){
+      if(current===true){
+        sum+=1
+        count++
+      }
+      else if (current===false){
+        count++
+      }
+      
+    }
+  })
+  med=sum/count
+  return med
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +177,34 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if(arr.length===0){
+    return null
+  }
+  let unique = [...new Set(arr)]
+  return unique
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr,word) {
+  if(arr.length===0){
+    return null
+  }
+  var res = false
+  if(arr[0]===word){
+    return true
+  }
+  arr.map((current)=>{
+    if(current===word){
+      res = true
+    }
+  })
+  return res
+}
 
 
 
@@ -78,7 +223,18 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr,word) {
+  if(arr.length===0){
+    return 0
+  }
+  var count = 0
+  arr.map((current)=>{
+    if(current===word){
+      count++
+    }
+  })
+  return count
+}
 
 
 
